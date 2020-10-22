@@ -1,0 +1,18 @@
+<button class="btn btn-light boton" [routerLink]="['AddCon']">Agregar</button>
+<div class=" grilla" >
+  <div class="spinner-border" role="status" *ngIf="Loading">
+    <span class="sr-only">Loading...</span>
+  </div>
+  <div class="card" *ngFor = " let dato of listContactos  ">
+    <div class="card-body" style="background-color: #008881e1;">
+      <h3 class="card-title">{{ dato.nombres }} {{ dato.apellidos }}</h3>
+      <h6 class="card-text">{{ dato.correo }} </h6>
+      <h6 class="card-text">{{ dato.telefono }} </h6>
+      <div class="d-flex justify-content-between">
+        <button class="btn btn-light boton" [routerLink]="['/editar/',dato.id_usuario]">Editar</button>
+        <button class="btn btn-light boton" (click)="delete(dato.id_usuario)">Eliminar</button>
+      </div>
+      
+    </div>
+  </div>
+</div>

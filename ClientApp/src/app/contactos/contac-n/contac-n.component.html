@@ -1,0 +1,40 @@
+<h3>{{ accion }} Contato</h3>
+<div class="spinner-border" role="status" *ngIf="Loading">
+  <span class="sr-only">Loading...</span>
+</div>
+<form [formGroup]="ContacN" (ngSubmit)="guardarContacto()">
+  <div class="form-group row">
+    <label class="control-label col-md-12">Nombres</label>
+    <input type="text" class="form-control" formControlName="Nombres" >
+    <samp class="text-danger ml-3" *ngIf="ContacN.get('Nombres').hasError('required') && ContacN.get ('Nombres').touched">Nombres requeridos</samp>
+
+  </div>    
+
+  <div class="form-group row">
+    <label class="control-label col-md-12">Apellidos</label>
+    <input type="text" class="form-control" formControlName="Apellidos">
+    <samp class="text-danger ml-3" *ngIf="ContacN.get('Nombres').hasError('required') && ContacN.get ('Apellidos').touched">Apellidos requeridos</samp>
+
+    
+
+  </div>
+  <div class="form-group row">
+    <label class="control-label col-md-12">Correo</label>
+    <input type="text" class="form-control" formControlName="Correo" >
+    <samp class="text-danger ml-3" *ngIf="ContacN.get('Nombres').hasError('required')&& ContacN.get ('Correo').touched">Correo requeridos</samp>
+
+
+  </div>
+  <div class="form-group row">
+    <label class="control-label col-md-12">Telefono</label>
+    <input type="text" class="form-control" formControlName="Telefono">
+    <samp class="text-danger ml-3" *ngIf="ContacN.get('Nombres').hasError('required')&& ContacN.get ('Telefono').touched">Telefono requeridos</samp>
+
+
+  </div> 
+  <div class="form-group">
+    <button class="btn btn-primary mr-2" [disabled] = "ContacN.invalid">Aceptar</button>
+    <button [routerLink]="['/']" class="btn btn-primary">Cancelar</button>
+  </div>
+  
+</form>
